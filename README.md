@@ -37,7 +37,7 @@ To run the example, type the following command:
 ```
 python3 pptstab.py -i example_input.fa -f 1
 ```
-This will predict if the submitted sequences can cause diabetes or not. It will use other parameters by default. It will save the output in "outfile.csv" in CSV (comma seperated variables).
+This will predict if the submitted sequences melting temperature (Tm). It will use other parameters by default. It will save the output in "outfile.csv" in CSV (comma seperated variables).
 
 ## Full Usage
 ```
