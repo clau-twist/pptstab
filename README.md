@@ -44,10 +44,10 @@ This will predict if the submitted sequences can cause diabetes or not. It will 
 usage: pptstab.py [-h] 
                   [-i INPUT]
                   [-o OUTPUT]
-		          [-j {1,2}]
-		          [-d {1,2}]
-		          [-d {1,2}]
-		          [-f {0,1}]
+              [-j {1,2}]
+              [-d {1,2}]
+	      [-d {1,2}]
+	      [-f {0,1}]
               [-m {EMB,AAC,SER}]
 
 ```
