@@ -4,6 +4,21 @@ Designing of thermostable proteins with a desired melting temperature
 PPTStab is developed to predict the thermostability of proteins and design the thermostable proteins. In the standalone version, ANN+MLP ensemble regressor based model.
 PPTStab is also available as web-server at https://webs.iiitd.edu.in/raghava/pptstab. Please read/cite the content about the PPTStab for complete information including algorithm behind the approach.
 
+## Installation
+To use pptstab, follow these steps to set up your environment:
+
+## Install using environment.yml
+
+1. Create a new Conda environment from the environment.yml file:
+
+```
+conda env create -f environment.yml
+```
+2. Activate the newly created environment:
+```
+conda activate pptstab
+```
+
 ## Standalone
 The Standalone version of PPTStab is written in python3 and following libraries are necessary for the successful run:
 - scikit-learn==1.0.2
