@@ -80,7 +80,7 @@ optional arguments:
 
 **method:** This option allow users to select the model based on composition and embeddings, by default SER.
 
-EIPPred Package Files
+PPTStab Package Files
 =======================
 It contantain following files, brief descript of these files given below
 
