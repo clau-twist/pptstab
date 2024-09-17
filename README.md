@@ -90,9 +90,9 @@ LICENSE                         : License information
 
 README.md                       : This file provide information about this package
 
-eippred.py                      : Main python program
+pptstab.py                      : Main python program
 
-example_input.fa                : Example file contain peptide sequenaces in FASTA format
+example.fasta                   : Example file contain peptide sequenaces in FASTA format
 
 example_predict_output.csv      : Example output file for predict module
 
