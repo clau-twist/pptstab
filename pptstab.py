@@ -146,7 +146,7 @@ def lenchk(file1):
     df1.columns = ['seq']
     for i in range(len(df1)):
         if len(df1['seq'][i])>30:
-            cc.append(df1['seq'][i][0:30])
+            cc.append(df1['seq'][i])
         else:
             cc.append(df1['seq'][i])
     df2 = pd.DataFrame(cc)
