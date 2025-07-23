@@ -81,17 +81,6 @@ def embedd_extract(file):
 #     df33.to_csv('embeddings.csv', index = None)
     return df33
 
-def emb_process(file):
-    df = pd.read_csv(file)
-    df.insert(0, 'seq', ['seq_' + str(i) for i in range(1, len(df) + 1)])
-    df2 = df.drop(['seq'], axis =1)
-    colNumber = df2.shape[1]
-    headerRow=[]
-    for i in range(colNumber):
-        headerRow.append('prot'+str(i))
-    df2.columns=headerRow
-    return df2
-
 def process_embedd(file):
     df11 = file
     df = df11[['Seq']]
@@ -138,20 +127,9 @@ def readseq(file):
             seqid.append(">Seq_"+str(i))
     df1 = pd.DataFrame(seqid)
     df2 = pd.DataFrame(seq)
+    df2.columns = ['Seq']
     return df1,df2
 
-def lenchk(file1):
-    cc = []
-    df1 = file1
-    df1.columns = ['seq']
-    for i in range(len(df1)):
-        if len(df1['seq'][i])>30:
-            cc.append(df1['seq'][i])
-        else:
-            cc.append(df1['seq'][i])
-    df2 = pd.DataFrame(cc)
-    df2.columns = ['Seq']
-    return df2
 def mutants(file1,file2):
     std = list("ACDEFGHIKLMNPQRSTVWY")
     cc = []
@@ -378,7 +356,7 @@ if Method == 'EMB':
     if Job == 1:
         print('\n======= Thanks for using Predict module of PPTStab. Your results will be stored in file :',result_filename,' =====\n')
         df_2,dfseq = readseq(Sequence)
-        df1 = lenchk(dfseq)
+        df1 = dfseq
         df11 = embedd_extract(df1)
         X = process_embedd(df11)
         mlres = model_run(X, './models/emb_model/ann_model.onnx','./models/emb_model/mlp_regressor.pkl')
@@ -390,7 +368,7 @@ if Method == 'EMB':
     if Job ==2:
         print('\n======= Thanks for using Design module of PPTStab. Your results will be stored in file :',result_filename,' =====\n')
         df_2,dfseq = readseq(Sequence)
-        df1 = lenchk(dfseq)
+        df1 = dfseq
         df_1 = mutants(df1,df_2)
         dfseq = df_1[['Seq']]
         df11 = embedd_extract(dfseq)
@@ -410,7 +388,7 @@ if Method == 'SER':
     if Job == 1:
         print('\n======= Thanks for using Predict module of PPTStab. Your results will be stored in file :',result_filename,' =====\n')
         df_2,dfseq = readseq(Sequence)
-        df1 = lenchk(dfseq)
+        df1 = dfseq
         X = feature_ser_gen(df1)
         mlres = model_run(X, './models/ser_model/ann_model.onnx','./models/ser_model/mlp_regressor.pkl')
         df44 = mlres.round(3)
@@ -421,7 +399,7 @@ if Method == 'SER':
     if Job ==2:
         print('\n======= Thanks for using Design module of PPTStab. Your results will be stored in file :',result_filename,' =====\n')
         df_2,dfseq = readseq(Sequence)
-        df1 = lenchk(dfseq)
+        df1 = dfseq
         df_1 = mutants(df1,df_2)
         dfseq = df_1[['Seq']]
         X = feature_ser_gen(dfseq)
@@ -437,7 +415,7 @@ if Method == 'AAC':
     if Job == 1:
         print('\n======= Thanks for using Predict module of PPTStab. Your results will be stored in file :',result_filename,' =====\n')
         df_2,dfseq = readseq(Sequence)
-        df1 = lenchk(dfseq)
+        df1 = dfseq
         X = feature_aac_gen(df1)
         mlres = model_run(X, './models/aac_model/ann_model.onnx','./models/aac_model/mlp_regressor.pkl')
         df44 = mlres.round(3)
@@ -448,7 +426,7 @@ if Method == 'AAC':
     if Job ==2:
         print('\n======= Thanks for using Design module of PPTStab. Your results will be stored in file :',result_filename,' =====\n')
         df_2,dfseq = readseq(Sequence)
-        df1 = lenchk(dfseq)
+        df1 = dfseq
         df_1 = mutants(df1,df_2)
         dfseq = df_1[['Seq']]
         X = feature_aac_gen(dfseq)
