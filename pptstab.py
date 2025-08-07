@@ -8,10 +8,10 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # 0 = all logs, 1 = INFO, 2 = WARNING,
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 # Suppress Python warnings
-from sklearn.exceptions import InconsistentVersionWarning
+# from sklearn.exceptions import InconsistentVersionWarning
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
-warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+# warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 import argparse
 import warnings
