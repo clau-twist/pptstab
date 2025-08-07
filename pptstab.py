@@ -43,9 +43,11 @@ from sklearn.preprocessing import MinMaxScaler
 
 def embedd_extract(file):
     df1 = file
-    # To load the base model.
-    tokenizer = BertTokenizer.from_pretrained("Rostlab/prot_bert", do_lower_case=False)
-    model = BertModel.from_pretrained("Rostlab/prot_bert")
+    
+    BERT_FILE_PATH = "./prot_bert"
+    tokenizer = BertTokenizer.from_pretrained(BERT_FILE_PATH)
+    model = BertModel.from_pretrained(BERT_FILE_PATH)
+
     model.eval()
 
     # Move model to GPU if available
