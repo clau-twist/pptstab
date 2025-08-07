@@ -7,8 +7,8 @@ dependencies:
   - pip:
     - torch==2.4.1
     - scikit-learn==1.0.2
-    - transformers
-    - tensorflow
-    - pandas
-    - numpy
+    - transformers==4.44.2
+    - pandas==2.0.3
+    - numpy==1.22.4
     - onnxruntime
+    - tensorflow
